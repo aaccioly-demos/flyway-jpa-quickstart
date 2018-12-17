@@ -1,5 +1,5 @@
 # flyway-jpa-quickstart
-Demo for [Flyway][7] migrations + JPA DDL Generation.
+Demo for [Flyway][1] migrations + JPA DDL Generation.
 
 ## Getting Started
 
@@ -46,7 +46,7 @@ public class Person {
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;
 
-//    Uncomment to test JPA DDL generation
+    // Uncomment to test JPA DDL generation
     @Column(name = "SSN", nullable = false, length = 15)
     private String ssn;
     
@@ -132,12 +132,12 @@ mvn compile exec:java
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE][7] file for details
 
-[1]: https://pt.stackoverflow.com/q/297326/100
-[2]: src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java
-[3]: src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java#L9
-[4]: src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java#L21-L22
-[5]: src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java#L66
-[6]: src/main/resources/db/new_migrations/V3__Add_SSN_to_person_table.sql
-[7]: https://flywaydb.org/
+[1]: https://flywaydb.org/
+[2]: https://github.com/aaccioly/flyway-jpa-quickstart/blob/master/src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java
+[3]: https://github.com/aaccioly/flyway-jpa-quickstart/blob/608b9ab9978885401a3ad328dc5b20b898fc11b9/src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java#L9
+[4]: https://github.com/aaccioly/flyway-jpa-quickstart/blob/608b9ab9978885401a3ad328dc5b20b898fc11b9/src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java#L21-L22
+[5]: https://github.com/aaccioly/flyway-jpa-quickstart/blob/608b9ab9978885401a3ad328dc5b20b898fc11b9/src/main/java/com/sevenrtc/stackoverflow/flyway/quickstart/entities/Person.java#L66
+[6]: https://github.com/aaccioly/flyway-jpa-quickstart/blob/master/src/main/resources/db/new_migrations/V3__Add_SSN_to_person_table.sql
+[7]: https://raw.githubusercontent.com/aaccioly/flyway-jpa-quickstart/master/LICENSE
