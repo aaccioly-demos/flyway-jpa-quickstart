@@ -50,7 +50,7 @@ public class Person {
     @Column(name = "SSN", nullable = false, length = 15)
     private String ssn;
     
-/* ... more code ... */
+    /* ... more code ... */
 
     @Override
     public String toString() {
@@ -88,17 +88,17 @@ The resulting script can be found at `target/jpa/sql/schema-update.sql`
 
 
 While Hibernate is generating valid SQL code, you can't really add `not null` columns to `PERSON` due to the fact that
-it has already been populated with some data. Even if you remove `not null` the unique constraint will fail.
+it has already been populated with some data. Even if you remove `not null`, the unique constraint will fail.
 
 It is very important to consider your data when writing migration scripts. The same script may be applied in multiple
-environments with tables in different states (e.g., data may have been added manually). As a rule of thumb it is best
+environments with tables in different states (e.g., data may have been added manually). As a rule of thumb, it is best
 to avoid making assumptions about the data.
 
-Fortunately the problem above is easily fixable. We just need to make sure to load data to the new `SSN` column before
+Fortunately, the problem above is easy to fix. We just need to make sure to load data to the new `SSN` column before
 making it `not null` and enabling the `unique` constraint.
 
 We could certainly write a complex ETL procedure to load data from different tables or external data sources.
-However, for the sake of simplicity I've modified the above script to generate fake data and saved it to 
+However, for the sake of simplicity I've modified the script above to generate fake data and saved it to 
 [3__Add_SSN_to_person_table.sql][6]:
 
 ```sql
@@ -116,15 +116,15 @@ alter table PERSON
   add constraint UK_PERSON_SSN unique (SSN);
 ```
 
-In order to update the database we need to copy the revised script to the `db/migration` folder and instruct 
-Flyway to migrate the schema
+In order to update the database we need to copy the revised script to the `db/migration` folder and instruct Flyway 
+to migrate the schema
 
 ```sh
 cp src/main/resources/db/new_migrations/V3__Add_SSN_to_person_table.sql src/main/resources/db/migration/
 mvn flyway:migrate
 ```
 
-Finally we can execute the main application one more time to verify the results:
+Finally, we can execute the main application one more time to verify the results:
 
 ```sh
 mvn compile exec:java
